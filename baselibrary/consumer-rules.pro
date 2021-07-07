@@ -1,0 +1,4 @@
+-keepparameternames
+-dontoptimize
+-dontshrink
+-dontobfuscate

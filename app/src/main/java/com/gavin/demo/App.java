@@ -1,4 +1,4 @@
-package com.gavin.asmdemo;
+package com.gavin.demo;
 
 import android.app.Application;
 import android.util.Log;

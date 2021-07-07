@@ -21,7 +21,7 @@ dependencies {
 }
 
 group='com.power.plugin'
-version='3.0.0'
+version='1.0.0'
 
 
 pluginBundle {
@@ -37,3 +37,17 @@ pluginBundle {
         }
     }
 }
+
+
+//> Task :lifecycle-plugin:publishPlugins
+//Publishing plugin com.power.gradle version 1.0.0
+//Publishing artifact build/libs/lifecycle-plugin-1.0.0.jar
+//Publishing artifact build/libs/lifecycle-plugin-1.0.0-sources.jar
+//Publishing artifact build/libs/lifecycle-plugin-1.0.0-javadoc.jar
+//Publishing artifact build/libs/lifecycle-plugin-1.0.0-groovydoc.jar
+//Publishing artifact build/publish-generated-resources/pom.xml
+//Activating plugin com.power.gradle version 1.0.0
+//
+//BUILD SUCCESSFUL in 12s
+//10 actionable tasks: 7 executed, 3 up-to-date
+//17:14:17: Task execution finished 'publishPlugins'.

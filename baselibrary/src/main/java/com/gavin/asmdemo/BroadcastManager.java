@@ -84,12 +84,12 @@ public final class BroadcastManager implements IBroadcastManager {
     @Override
     public Intent registerReceiver(Context context, BroadcastReceiver receiver, IntentFilter filter) {
         if (allActionIsRegistered(filter) && receiver != null) {
-            if (BuildConfig.DEBUG) {
-                RegisterBroadcastEntity entity = findSavedReceiver(receiver);
-                if (entity != null) {
-                    Log.e(TAG, "The receiver is already registered");
-                }
+
+            RegisterBroadcastEntity entity = findSavedReceiver(receiver);
+            if (entity != null) {
+                Log.e(TAG, "The receiver is already registered");
             }
+
             sReceiverList.add(new RegisterBroadcastEntity(receiver, filter));
             return null;
         }
