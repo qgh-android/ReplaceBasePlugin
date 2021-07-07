@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+apply plugin: "com.gradle.plugin-publish"
+
+
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+}
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+
+    implementation 'com.android.tools.build:gradle:4.0.2'
+    implementation "org.ow2.asm:asm:7.0"
+    implementation "org.ow2.asm:asm-commons:7.0"
+
+}
+
+group='com.power.plugin'
+version='3.0.0'
+
+
+pluginBundle {
+    description = 'ReplaceBase'  //插件描述
+    tags = ['ReplaceBase']  //插件的tag。可以通过这个在插件门户上搜索
+
+    plugins {
+        greetingsPlugin {
+            id = 'com.power.gradle'
+            displayName = 'ReplaceBasePlugin'
+        }
+    }
+}
