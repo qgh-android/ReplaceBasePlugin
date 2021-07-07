@@ -9,16 +9,16 @@ import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.qin.asm.ClassReader
-import org.qin.asm.ClassVisitor
-import org.qin.asm.ClassWriter
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.ClassWriter
+import org.objectweb.asm.Opcodes
 
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
 import java.util.jar.JarOutputStream
 import java.util.zip.ZipEntry
 
-import static org.qin.asm.ClassReader.EXPAND_FRAMES
 
 class BatteryMonitorPlugin extends Transform implements Plugin<Project> {
 
@@ -97,7 +97,7 @@ class BatteryMonitorPlugin extends Transform implements Plugin<Project> {
                     ClassReader classReader = new ClassReader(file.bytes)
                     ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS)
                     ClassVisitor cv = new PowerMonitorClassVisitor(classWriter)
-                    classReader.accept(cv, EXPAND_FRAMES)
+                    classReader.accept(cv, Opcodes.ASM7)
                     byte[] code = classWriter.toByteArray()
                     FileOutputStream fos = new FileOutputStream(
                             file.parentFile.absolutePath + File.separator + name)
@@ -153,7 +153,7 @@ class BatteryMonitorPlugin extends Transform implements Plugin<Project> {
                     ClassReader classReader = new ClassReader(IOUtils.toByteArray(inputStream))
                     ClassWriter classWriter = new ClassWriter(classReader, ClassWriter.COMPUTE_MAXS)
                     ClassVisitor cv = new PowerMonitorClassVisitor(classWriter)
-                    classReader.accept(cv, EXPAND_FRAMES)
+                    classReader.accept(cv, Opcodes.ASM7)
                     byte[] code = classWriter.toByteArray()
                     jarOutputStream.write(code)
                 } else {

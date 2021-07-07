@@ -1,8 +1,8 @@
 package com.power.plugin.apm;
 
-import org.qin.asm.ClassVisitor;
-import org.qin.asm.Opcodes;
 
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.Opcodes;
 
 public class PowerMonitorClassVisitor extends ClassVisitor implements Opcodes {
 
